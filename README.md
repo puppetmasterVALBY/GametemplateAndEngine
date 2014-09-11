@@ -1,4 +1,4 @@
-GametemplateAndEngine
+GametemplateAndEngine, this project is made for Android Studio
 =====================
 
 Beware, not done yet
