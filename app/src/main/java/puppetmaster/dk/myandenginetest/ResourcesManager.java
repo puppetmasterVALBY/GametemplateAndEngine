@@ -52,9 +52,9 @@ public class ResourcesManager {
     {
         loadMenuGraphics();
         loadMenuAudio();
-        loadMenuFonts();
+      //  loadMenuFonts();
     }
-
+/*
     private void loadMenuFonts()
     {
         FontFactory.setAssetBasePath("font/");
@@ -63,7 +63,7 @@ public class ResourcesManager {
         font = FontFactory.createStrokeFromAsset(activity.getFontManager(), mainFontTexture, activity.getAssets(), "font.ttf", 50, true, Color.WHITE, 2, Color.BLACK);
         font.load();
     }
-
+*/
     public void loadGameResources()
     {
         loadGameGraphics();
