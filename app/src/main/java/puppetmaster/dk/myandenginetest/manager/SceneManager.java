@@ -5,6 +5,7 @@ import org.andengine.ui.IGameInterface;
 
 import puppetmaster.dk.myandenginetest.ResourcesManager;
 import puppetmaster.dk.myandenginetest.base.BaseScene;
+import puppetmaster.dk.myandenginetest.scene.LoadingScene;
 import puppetmaster.dk.myandenginetest.scene.MainMenuScene;
 import puppetmaster.dk.myandenginetest.scene.SplashScene;
 
@@ -109,10 +110,10 @@ public class SceneManager {
     {
         ResourcesManager.getInstance().loadMenuResources();
         menuScene = new MainMenuScene();
-        setScene(menuScene);
+        loadingScene = new LoadingScene();
+        SceneManager.getInstance().setScene(menuScene);
         disposeSplashScene();
     }
-
 
 
 }

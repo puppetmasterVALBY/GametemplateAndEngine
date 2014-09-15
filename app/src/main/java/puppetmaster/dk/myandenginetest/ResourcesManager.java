@@ -6,6 +6,9 @@ package puppetmaster.dk.myandenginetest;
 
 import org.andengine.engine.Engine;
 import org.andengine.engine.camera.Camera;
+import org.andengine.opengl.font.Font;
+import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
@@ -15,6 +18,7 @@ import org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtla
 import org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder.TextureAtlasBuilderException;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
+import org.andengine.util.adt.color.Color;
 import org.andengine.util.debug.Debug;
 
 public class ResourcesManager {
@@ -30,7 +34,7 @@ public class ResourcesManager {
     public ITextureRegion menu_background_region;
     public ITextureRegion play_region;
     public ITextureRegion options_region;
-
+    public Font font;
     private BuildableBitmapTextureAtlas menuTextureAtlas;    public Engine engine;
     public MyActivity activity;
     public Camera camera;
@@ -48,8 +52,18 @@ public class ResourcesManager {
     {
         loadMenuGraphics();
         loadMenuAudio();
+      //  loadMenuFonts();
     }
+/*
+    private void loadMenuFonts()
+    {
+        FontFactory.setAssetBasePath("font/");
+        final ITexture mainFontTexture = new BitmapTextureAtlas(activity.getTextureManager(), 256, 256, TextureOptions.BILINEAR_PREMULTIPLYALPHA);
 
+        font = FontFactory.createStrokeFromAsset(activity.getFontManager(), mainFontTexture, activity.getAssets(), "font.ttf", 50, true, Color.WHITE, 2, Color.BLACK);
+        font.load();
+    }
+*/
     public void loadGameResources()
     {
         loadGameGraphics();
@@ -109,6 +123,9 @@ public class ResourcesManager {
         splashTextureAtlas.unload();
         splash_region = null;
     }
+
+
+
 
     /**
      * @param engine

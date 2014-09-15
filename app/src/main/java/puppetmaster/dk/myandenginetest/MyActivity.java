@@ -2,6 +2,7 @@ package puppetmaster.dk.myandenginetest;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -77,4 +78,23 @@ public class MyActivity extends BaseGameActivity {
         }));
         pOnPopulateSceneCallback.onPopulateSceneFinished();
     }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        System.exit(0);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            SceneManager.getInstance().getCurrentScene().onBackKeyPressed();
+        }
+        return false;
+    }
+
+
+
 }
