@@ -76,10 +76,13 @@ public class MainMenuScene extends BaseScene implements MenuScene.IOnMenuItemCli
     }
 
     @Override
-    public boolean onMenuItemClicked(MenuScene pMenuScene, IMenuItem pMenuItem, float pMenuItemLocalX, float pMenuItemLocalY) {
+    public boolean onMenuItemClicked(MenuScene pMenuScene, IMenuItem pMenuItem, float pMenuItemLocalX, float pMenuItemLocalY)
+    {
         switch(pMenuItem.getID())
         {
             case MENU_PLAY:
+                //Load Game Scene!
+                SceneManager.getInstance().loadGameScene(engine);
                 return true;
             case MENU_OPTIONS:
                 return true;
@@ -87,4 +90,5 @@ public class MainMenuScene extends BaseScene implements MenuScene.IOnMenuItemCli
                 return false;
         }
     }
+
 }

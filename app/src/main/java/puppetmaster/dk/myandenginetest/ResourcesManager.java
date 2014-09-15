@@ -7,8 +7,6 @@ package puppetmaster.dk.myandenginetest;
 import org.andengine.engine.Engine;
 import org.andengine.engine.camera.Camera;
 import org.andengine.opengl.font.Font;
-import org.andengine.opengl.font.FontFactory;
-import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
@@ -18,7 +16,6 @@ import org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtla
 import org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder.TextureAtlasBuilderException;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
-import org.andengine.util.adt.color.Color;
 import org.andengine.util.debug.Debug;
 
 public class ResourcesManager {
@@ -52,15 +49,15 @@ public class ResourcesManager {
     {
         loadMenuGraphics();
         loadMenuAudio();
-      //  loadMenuFonts();
+        //loadMenuFonts();
     }
 /*
     private void loadMenuFonts()
     {
-        FontFactory.setAssetBasePath("font/");
+        FontFactory.setAssetBasePath("fonts/");
         final ITexture mainFontTexture = new BitmapTextureAtlas(activity.getTextureManager(), 256, 256, TextureOptions.BILINEAR_PREMULTIPLYALPHA);
 
-        font = FontFactory.createStrokeFromAsset(activity.getFontManager(), mainFontTexture, activity.getAssets(), "font.ttf", 50, true, Color.WHITE, 2, Color.BLACK);
+        font = FontFactory.createStrokeFromAsset(activity.getFontManager(), mainFontTexture, activity.getAssets(), "font.ttf", 50, true, android.graphics.Color.BLACK, 2, android.graphics.Color.WHITE);
         font.load();
     }
 */
@@ -124,7 +121,15 @@ public class ResourcesManager {
         splash_region = null;
     }
 
+    public void unloadMenuTextures()
+    {
+        menuTextureAtlas.unload();
+    }
 
+    public void loadMenuTextures()
+    {
+        menuTextureAtlas.load();
+    }
 
 
     /**
