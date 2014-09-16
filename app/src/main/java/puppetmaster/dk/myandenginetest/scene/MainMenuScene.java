@@ -52,6 +52,7 @@ public class MainMenuScene extends BaseScene implements MenuScene.IOnMenuItemCli
                 pGLState.enableDither();
             }
         });
+
     }
     private void createMenuChildScene()
     {
