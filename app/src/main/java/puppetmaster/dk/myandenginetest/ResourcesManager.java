@@ -7,6 +7,8 @@ package puppetmaster.dk.myandenginetest;
 import org.andengine.engine.Engine;
 import org.andengine.engine.camera.Camera;
 import org.andengine.opengl.font.Font;
+import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
@@ -37,6 +39,16 @@ public class ResourcesManager {
     public Camera camera;
     public VertexBufferObjectManager vbom;
 
+    // Game Texture
+    public BuildableBitmapTextureAtlas gameTextureAtlas;
+
+    // Game Texture Regions
+    public ITextureRegion platform1_region;
+    public ITextureRegion platform2_region;
+    public ITextureRegion platform3_region;
+    public ITextureRegion coin_region;
+
+
     //---------------------------------------------
     // TEXTURES & TEXTURE REGIONS
     //---------------------------------------------
@@ -49,9 +61,9 @@ public class ResourcesManager {
     {
         loadMenuGraphics();
         loadMenuAudio();
-        //loadMenuFonts();
+        loadMenuFonts();
     }
-/*
+
     private void loadMenuFonts()
     {
         FontFactory.setAssetBasePath("fonts/");
@@ -60,7 +72,7 @@ public class ResourcesManager {
         font = FontFactory.createStrokeFromAsset(activity.getFontManager(), mainFontTexture, activity.getAssets(), "font.ttf", 50, true, android.graphics.Color.BLACK, 2, android.graphics.Color.WHITE);
         font.load();
     }
-*/
+
     public void loadGameResources()
     {
         loadGameGraphics();
@@ -86,7 +98,10 @@ public class ResourcesManager {
             Debug.e(e);
         }
     }
-
+    public void unloadGameTextures()
+    {
+        // TODO (Since we did not create any textures for game scene yet)
+    }
     private void loadMenuAudio()
     {
 
@@ -94,7 +109,23 @@ public class ResourcesManager {
 
     private void loadGameGraphics()
     {
+        BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/game/");
+        gameTextureAtlas = new BuildableBitmapTextureAtlas(activity.getTextureManager(), 1024, 1024, TextureOptions.BILINEAR);
 
+        platform1_region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameTextureAtlas, activity, "platform1.png");
+        platform2_region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameTextureAtlas, activity, "platform2.png");
+        platform3_region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameTextureAtlas, activity, "platform3.png");
+        coin_region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameTextureAtlas, activity, "coin.png");
+
+        try
+        {
+            this.gameTextureAtlas.build(new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>(0, 1, 0));
+            this.gameTextureAtlas.load();
+        }
+        catch (final TextureAtlasBuilderException e)
+        {
+            Debug.e(e);
+        }
     }
 
     private void loadGameFonts()
