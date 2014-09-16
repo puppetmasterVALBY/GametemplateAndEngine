@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level width="1600" height="780">
+    <entity x="100" y="100" type="platform1"/>
+    <entity x="200" y="200" type="platform1"/>
+    <entity x="400" y="200" type="platform2"/>
+    <entity x="530" y="200" type="platform2"/>
+    <entity x="660" y="200" type="platform2"/>
+    <entity x="880" y="240" type="platform3"/>
+    <entity x="1100" y="330" type="platform3"/>
+    <entity x="400" y="270" type="coin"/>
+    <entity x="500" y="400" type="coin"/>
+    <entity x="600" y="400" type="coin"/>
+
+     <entity x="100" y="100" type="platform1"/>
+    <entity x="240" y="100" type="platform1"/>
+    <entity x="380" y="100" type="platform3"/>
+    <entity x="520" y="100" type="platform2"/>
+    <entity x="660" y="100" type="platform3"/>
+    <entity x="800" y="100" type="platform1"/>
+    <entity x="940" y="100" type="platform3"/>
+    <entity x="1080" y="100" type="platform1"/>
+    <entity x="1220" y="100" type="platform3"/>
+    <entity x="1360" y="100" type="platform1"/>
+    <entity x="1500" y="100" type="platform1"/>
+    <entity x="400" y="190" type="coin"/>
+    <entity x="500" y="190" type="coin"/>
+    <entity x="600" y="190" type="coin"/>
+    <entity x="60" y="140" type="player"/>
+    <entity x="1580" y="250" type="levelComplete"/>
+</level>

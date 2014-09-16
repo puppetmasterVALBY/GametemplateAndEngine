@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import org.andengine.AndEngine;
 import org.andengine.engine.Engine;
 import org.andengine.engine.LimitedFPSEngine;
+import org.andengine.engine.camera.BoundCamera;
 import org.andengine.engine.camera.Camera;
 import org.andengine.engine.handler.timer.ITimerCallback;
 import org.andengine.engine.handler.timer.TimerHandler;
@@ -31,7 +32,7 @@ public class MyActivity extends BaseGameActivity {
     private final int WIDTH = 800;
     private ResourcesManager resourcesManager;
 
-    private Camera mCamera;
+    private BoundCamera mCamera;
     private Scene mScene;
 
 
@@ -43,7 +44,7 @@ public class MyActivity extends BaseGameActivity {
 
     @Override
     public EngineOptions onCreateEngineOptions() {
-        mCamera = new Camera(0, 0, WIDTH, HEIGHT);
+        mCamera = new BoundCamera(0, 0, WIDTH, HEIGHT);
         EngineOptions engineOptions = new EngineOptions(true, ScreenOrientation.LANDSCAPE_SENSOR, new RatioResolutionPolicy(WIDTH, HEIGHT), this.mCamera);
         engineOptions.getAudioOptions().setNeedsMusic(true).setNeedsSound(true);
         engineOptions.setWakeLockOptions(WakeLockOptions.SCREEN_ON);
