@@ -306,7 +306,7 @@ public class GameScene extends BaseScene implements IOnSceneTouchListener {
                             public void onTimePassed(final TimerHandler pTimerHandler) {
                                 pTimerHandler.reset();
                                 engine.unregisterUpdateHandler(pTimerHandler);
-                                x1.getBody().setType(BodyDef.BodyType.KinematicBody);
+                                x1.getBody().setType(BodyDef.BodyType.DynamicBody);
                             }
                         }));
                     }
