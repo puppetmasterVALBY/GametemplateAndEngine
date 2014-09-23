@@ -71,6 +71,8 @@ public class MainMenuScene extends BaseScene implements MenuScene.IOnMenuItemCli
         playMenuItem.setPosition(playMenuItem.getX(), playMenuItem.getY()-30 );
         optionsMenuItem.setPosition(optionsMenuItem.getX(), optionsMenuItem.getY()-60);
 
+        showAdds();
+
         menuChildScene.setOnMenuItemClickListener(this);
 
         setChildScene(menuChildScene);

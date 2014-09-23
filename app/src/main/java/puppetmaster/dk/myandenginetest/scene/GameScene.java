@@ -11,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.Manifold;
 
 import org.andengine.engine.camera.hud.HUD;
+import org.andengine.engine.camera.hud.controls.DigitalOnScreenControl;
 import org.andengine.engine.handler.timer.ITimerCallback;
 import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.entity.IEntity;
@@ -74,7 +75,11 @@ public class GameScene extends BaseScene implements IOnSceneTouchListener {
     private void createHUD()
     {
         gameHUD = new HUD();
+// Position the controller in the bottom left corner of the screen
 
+        final float controllerX = 10f;//mControllerBaseTextureRegion.getWidth();
+       final float controllerY = 10f;//mControllerBaseTextureRegion.getHeight();
+        //DigitalOnScreenControl controller = new DigitalOnScreenControl(controllerX, controllerY, camera, )
         // CREATE SCORE TEXT
         scoreText = new Text(20, 420, resourcesManager.font, "Score: 0123456789", new TextOptions(HorizontalAlign.LEFT), vbom);
         scoreText.setAnchorCenter(0, 0);
@@ -103,6 +108,7 @@ public class GameScene extends BaseScene implements IOnSceneTouchListener {
     public void createScene() {
         createBackground();
         createHUD();
+
         createPhysics();
         loadLevel(1);
         createGameOverText();

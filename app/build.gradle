@@ -11,6 +11,17 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    productFlavors {
+        free {
+            applicationId "dk.puppetmaster.myandenginetest.free"
+            versionName "1.0-free"
+        }
+        pay {
+            applicationId "dk.puppetmaster.myandenginetest.pay"
+            versionName "1.0-pay"
+
+        }
+    }
     buildTypes {
         release {
             runProguard false
