@@ -84,7 +84,6 @@ public class MyActivity extends BaseGameActivity {
     protected void onDestroy()
     {
         super.onDestroy();
-        System.exit(0);
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
